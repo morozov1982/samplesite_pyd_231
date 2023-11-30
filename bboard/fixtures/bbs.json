@@ -1,0 +1,93 @@
+[
+  {
+    "model": "bboard.bb",
+    "pk": 1,
+    "fields": {
+      "rubric": 1,
+      "title": "Плотина",
+      "content": "Бобёр её строил",
+      "price": "100500.00",
+      "is_active": true,
+      "published": "2023-11-23T13:45:22.292Z",
+      "updated": "2023-11-28T13:20:26.972Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 2,
+    "fields": {
+      "rubric": 2,
+      "title": "1234",
+      "content": "dggdf",
+      "price": "123.00",
+      "is_active": true,
+      "published": "2023-11-28T13:57:56.258Z",
+      "updated": "2023-11-28T13:57:56.258Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 3,
+    "fields": {
+      "rubric": 1,
+      "title": "1234",
+      "content": "dghdeg",
+      "price": "345.00",
+      "is_active": true,
+      "published": "2023-11-28T14:01:25.631Z",
+      "updated": "2023-11-28T14:01:25.631Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 4,
+    "fields": {
+      "rubric": 1,
+      "title": "fg35353",
+      "content": "dfgjdfjd",
+      "price": "12.00",
+      "is_active": true,
+      "published": "2023-11-28T14:39:30.205Z",
+      "updated": "2023-11-28T14:39:30.205Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 5,
+    "fields": {
+      "rubric": 1,
+      "title": "Бобёр",
+      "content": "ываыва",
+      "price": "44.00",
+      "is_active": true,
+      "published": "2023-11-28T14:59:11.853Z",
+      "updated": "2023-11-28T14:59:11.853Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 6,
+    "fields": {
+      "rubric": 1,
+      "title": "Бобёр",
+      "content": "вап",
+      "price": "26.00",
+      "is_active": true,
+      "published": "2023-11-28T15:00:58.846Z",
+      "updated": "2023-11-28T15:00:58.846Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 7,
+    "fields": {
+      "rubric": 2,
+      "title": "Бобёр",
+      "content": "ыва",
+      "price": "34.00",
+      "is_active": true,
+      "published": "2023-11-28T15:02:20.672Z",
+      "updated": "2023-11-28T15:02:20.672Z"
+    }
+  }
+]
