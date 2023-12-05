@@ -54,6 +54,14 @@ class Rubric(models.Model):
 
 
 class Bb(models.Model):
+    KINDS = (
+        ('b', 'Куплю'),
+        ('s', 'Продам'),
+        ('c', 'Обменяю'),
+    )
+
+    kind = models.CharField(max_length=1, choices=KINDS, default='s', verbose_name='Тип объявления')
+
     rubric = models.ForeignKey("Rubric", null=True, on_delete=models.PROTECT,
                                verbose_name='Рубрика')
     title = models.CharField(
