@@ -6,7 +6,7 @@
     <h2>{#{ bb.title }#}{{ bb.title_and_price }}</h2>
     <p>{{ bb.content }}</p>
     <p>
-        <a href="{% url 'by_rubric' bb.rubric.pk %}">{{ bb.rubric.name }}</a>
+        <a href="{% url 'bboard:by_rubric' bb.rubric.pk %}">{{ bb.rubric.name }}</a>
     </p>
     <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
 </div>
