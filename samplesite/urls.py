@@ -20,11 +20,4 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('bboard.urls', namespace='bboard')),
-    # path('', include('bboard.urls', namespace='default-bboard')),
-    # path('bboard/', include('bboard.urls', namespace='other-bboard')),
-    # path('', include([
-    #     path('add/', BbCreateView.as_view(), name='add'),
-    #     path('<int:rubric_id>/', by_rubric, name='by_rubric'),
-    #     path('', index, name='index'),
-    # ])),
 ]
