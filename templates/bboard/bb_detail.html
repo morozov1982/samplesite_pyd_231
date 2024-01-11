@@ -7,4 +7,9 @@
     <h2>{{ bb.title }}</h2>
     <p>{{ bb.content }}</p>
     <p>Цена: {{ bb.price }}</p>
+    
+    <p>
+        <a href="{% url 'bboard:update' bb.pk %}">Изменить</a>
+        <a href="{% url 'bboard:delete' bb.pk %}">Удалить</a>
+    </p>
 {% endblock %}
