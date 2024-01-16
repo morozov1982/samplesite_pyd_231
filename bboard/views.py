@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.urls import reverse_lazy, reverse
 from django.views.generic import RedirectView
 from django.views.generic.dates import ArchiveIndexView, MonthArchiveView
@@ -27,7 +28,7 @@ class BbIndexView(ArchiveIndexView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['rubrics'] = Rubric.objects.all()
+        context['rubrics'] = Rubric.objects.annotate(cnt=Count('bb')).filter(cnt__gt=0)
         return context
 
 

@@ -16,8 +16,9 @@
 <nav>
     <a href="{% url 'bboard:index' %}">Главная</a>
     <a href="{% url 'bboard:add' %}">Добавить</a>
+{#{{ rubrics.0 }}#}
     {% for rubric in rubrics %}
-        <a href="{{ rubric.get_absolute_url }}">{{ rubric }} ({{ rubric.cnt }})</a>
+        <a href="{{ rubric.get_absolute_url }}">{{ rubric.name }} ({{ rubric.cnt }})</a>
     {% endfor %}
 </nav>
 
