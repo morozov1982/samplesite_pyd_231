@@ -1,15 +1,83 @@
 {% extends "layout/basic.html" %}
+{% load static %}
 
 {% block title %}{{ bb.title }}{% endblock %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'assets/css/flex-slider.css' %}">
+{% endblock %}
+
 {% block content %}
-    <p>Рубрика: {{ bb.rubric.name }}</p>
-    <h2>{{ bb.title }}</h2>
-    <p>{{ bb.content }}</p>
-    <p>Цена: {{ bb.price }}</p>
+    <!-- Page Content -->
+    <!-- Single Starts Here -->
+    <div class="single-product">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <div class="line-dec"></div>
+              <h1>Рубрика: {{ bb.rubric.name }}</h1>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="product-slider">
+              <div id="slider" class="flexslider">
+                <ul class="slides">
+                  <li>
+                    <img src="{% static 'assets/images/big-01.jpg' %}">
+                  </li>
+                  <li>
+                    <img src="{% static 'assets/images/big-02.jpg' %}">
+                  </li>
+                  <li>
+                    <img src="{% static 'assets/images/big-03.jpg' %}">
+                  </li>
+                  <li>
+                    <img src="{% static 'assets/images/big-04.jpg' %}">
+                  </li>
+                  <!-- items mirrored twice, total of 12 -->
+                </ul>
+              </div>
+              <div id="carousel" class="flexslider">
+                <ul class="slides">
+                  <li>
+                    <img src="{% static 'assets/images/thumb-01.jpg' %}">
+                  </li>
+                  <li>
+                    <img src="{% static 'assets/images/thumb-02.jpg' %}">
+                  </li>
+                  <li>
+                    <img src="{% static 'assets/images/thumb-03.jpg' %}">
+                  </li>
+                  <li>
+                    <img src="{% static 'assets/images/thumb-04.jpg' %}">
+                  </li>
+                  <!-- items mirrored twice, total of 12 -->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-content">
+              <h4>{{ bb.title }}</h4>
+              <h6>${{ bb.price }}</h6>
+              <p>{{ bb.content }}</p>
+              <div class="down-content">
+                <div class="categories">
+                  <h6>Категория: <span>
+                      <a href="{% url 'bboard:by_rubric' bb.rubric.pk %}">
+                          {{ bb.rubric.name }}</a></span></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Single Page Ends Here -->
     
-    <p>
-        <a href="{% url 'bboard:update' bb.pk %}">Изменить</a>
-        <a href="{% url 'bboard:delete' bb.pk %}">Удалить</a>
-    </p>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'assets/js/flex-slider.js' %}"></script>
 {% endblock %}

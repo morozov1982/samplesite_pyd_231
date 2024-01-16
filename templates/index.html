@@ -1,27 +1,48 @@
 {% extends "layout/basic.html" %}
+{% load static %}
 
 {% block content %}
-    
-    <p>
-    {% for d in date_list %}
-        {{ d.year }} /
-        <a href="{% url 'bboard:month' year=d.year month=d.month %}">
-            {{ d.year }} - {{ d.month }}</a>
-    {% endfor %}
-    </p>
+    <!-- Page Content -->
+    <!-- Items Starts Here -->
+    <div class="featured-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
+            <div class="section-heading">
+              <div class="line-dec"></div>
+              <h1>Featured Items</h1>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <div id="filters" class="button-group">
+                {% for rubric in rubrics %}
+                    <button class="btn btn-primary">
+                        <a href="{{ rubric.get_absolute_url }}">
+                            {{ rubric.name }} ({{ rubric.cnt }})
+                        </a>
+                    </button>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="featured container no-gutter">
 
-{% for bb in bbs %}
-<div>
-    <h2>
-        <a href="{% url 'bboard:detail' pk=bb.pk %}">
-            {{ bb.title_and_price }}</a>
-    </h2>
-    <p>{{ bb.content }}</p>
-    <p>
-        <a href="{% url 'bboard:by_rubric' bb.rubric.pk %}">
-            {{ bb.rubric.name }}</a>
-    </p>
-    <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
-</div>
-{% endfor %}
+        <div class="row posts">
+            {% for bb in bbs %}
+            <div id="{{ bb.pk }}" class="item new col-md-4">
+              <a href="{% url 'bboard:detail' pk=bb.pk %}">
+                <div class="featured-item">
+                  <img src="{% static 'assets/images/product-01.jpg' %}" alt="{{ bb.title }}">
+                  <h4>{{ bb.title }}</h4>
+                  <h6>${{ bb.price }}</h6>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Featred Page Ends Here -->
 {% endblock %}

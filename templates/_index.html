@@ -1,0 +1,27 @@
+{% extends "layout/basic.html" %}
+
+{% block content %}
+    
+    <p>
+    {% for d in date_list %}
+        {{ d.year }} /
+        <a href="{% url 'bboard:month' year=d.year month=d.month %}">
+            {{ d.year }} - {{ d.month }}</a>
+    {% endfor %}
+    </p>
+
+{% for bb in bbs %}
+<div>
+    <h2>
+        <a href="{% url 'bboard:detail' pk=bb.pk %}">
+            {{ bb.title_and_price }}</a>
+    </h2>
+    <p>{{ bb.content }}</p>
+    <p>
+        <a href="{% url 'bboard:by_rubric' bb.rubric.pk %}">
+            {{ bb.rubric.name }}</a>
+    </p>
+    <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+</div>
+{% endfor %}
+{% endblock %}
