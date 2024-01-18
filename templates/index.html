@@ -10,18 +10,36 @@
     {% endfor %}
     </p>
 
-{% for bb in bbs %}
-<div>
+{% for bb in bbs|dictsort:'price' %}
+{#{% cycle 'b1' 'b2' 'b3' as currentclass %}#}
+{#<div class="{{ currentclass }}">#}
+<div class="{% cycle 'b1' 'b2' 'b3' %}">
+{#<div style="background-color: {% cycle '#bbccdd' '#ffffcc' %};">#}
     <h2>
-        <a href="{% url 'bboard:detail' pk=bb.pk %}">
-            {{ bb.title_and_price }}</a>
+        {% url 'bboard:detail' bb.pk as detail_url %}
+        <a href="{{ detail_url }}">
+            {{ forloop.counter }} - {{ bb.title_and_price }}
+            {% if forloop.first == True %}
+                (Первое Объявление)
+            {% elif forloop.last == True %}
+                (Последнее Объявление)
+            {% endif %}</a>
     </h2>
-    <p>{{ bb.content }}</p>
+    <p>{{ bb.content|cut:'Lorem' }}</p>
+
+    {% ifchanged bb.rubric.name %}
     <p>
         <a href="{% url 'bboard:by_rubric' bb.rubric.pk %}">
             {{ bb.rubric.name }}</a>
     </p>
+    {% endifchanged %}
+
     <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+
+    {% firstof bb.phone bb.email 'На деревню дедушке' %}
+
 </div>
+{% empty %}
+    <p>Объявлений нет!!!</p>
 {% endfor %}
 {% endblock %}

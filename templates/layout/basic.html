@@ -18,7 +18,14 @@
     <a href="{% url 'bboard:add' %}">Добавить</a>
 {#{{ rubrics.0 }}#}
     {% for rubric in rubrics %}
-        <a href="{{ rubric.get_absolute_url }}">{{ rubric.name }} ({{ rubric.cnt }})</a>
+        {% with bb_count=rubric.cnt %}
+        <a href="{{ rubric.get_absolute_url }}">
+{#            {{ rubric.name }} ({{ rubric.cnt }})</a>#}
+            {% filter upper %}
+                {{ rubric.name }}
+            {% endfilter %}
+            ({{ bb_count }})</a>
+        {% endwith %}
     {% endfor %}
 </nav>
 
@@ -26,6 +33,8 @@
     {% block content %}
     {% endblock %}
 </section>
+
+<footer>&copy;1982 &ndash; {% now 'Y' %}</footer>
 
 </body>
 </html>
