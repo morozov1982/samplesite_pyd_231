@@ -2,6 +2,8 @@
 
 {% block content %}
     
+    {{ block.super }}
+    
     <p>
     {% for d in date_list %}
         {{ d.year }} /
@@ -42,4 +44,4 @@
 {% empty %}
     <p>Объявлений нет!!!</p>
 {% endfor %}
-{% endblock %}
+{% endblock content %}

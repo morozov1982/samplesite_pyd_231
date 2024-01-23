@@ -2,7 +2,7 @@ header h1 {
     font-size: 40px;
     text-transform: uppercase;
     text-align: center;
-    background: url("bg.jpg") left / auto 100% no-repeat;
+    background: url("../img/bg.jpg") left / auto 100% no-repeat;
 }
 
 nav {

@@ -1,0 +1,15 @@
+<nav>
+    <a href="{% url 'bboard:index' %}">Главная</a>
+    <a href="{% url 'bboard:add' %}">Добавить</a>
+{#{{ rubrics.0 }}#}
+    {% for rubric in rubrics %}
+        {% with bb_count=rubric.cnt %}
+        <a href="{{ rubric.get_absolute_url }}">
+{#            {{ rubric.name }} ({{ rubric.cnt }})</a>#}
+            {% filter upper %}
+                {{ rubric.name }}
+            {% endfilter %}
+            ({{ bb_count }})</a>
+        {% endwith %}
+    {% endfor %}
+</nav>
