@@ -32,17 +32,12 @@ class MinMaxValueValidator:
 
 
 class Rubric(models.Model):
-    name = models.CharField(max_length=20, db_index=True, verbose_name='Название', unique=True)
-    # slug = models.SlugField(max_length=160, unique=True, verbose_name='Слаг')
+    name = models.CharField(max_length=20, db_index=True,
+                            verbose_name='Название', unique=True)
+    order = models.SmallIntegerField(default=0, db_index=True)
 
     def __str__(self):
         return self.name
-
-    # def save(self, *args, **kwargs):
-    #     super().save(*args, **kwargs)
-
-    # def delete(self, *args, **kwargs):
-    #     super().delete(*args, **kwargs)
 
     def get_absolute_url(self):
         return f"/{self.pk}/"
@@ -50,7 +45,7 @@ class Rubric(models.Model):
     class Meta:
         verbose_name_plural = 'Рубрики'
         verbose_name = 'Рубрика'
-        ordering = ['name']
+        ordering = ['order', 'name']
 
 
 class Bb(models.Model):
