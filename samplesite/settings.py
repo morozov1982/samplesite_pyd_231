@@ -144,3 +144,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     # 'bboard.rubric': lambda rec: "/%s/" % rec.pk,
 #     'bboard.rubric': lambda rec: f"/{rec.pk}/",
 # }
+
+LOGIN_URL = "bboard:login"
+LOGIN_REDIRECT_URL = "bboard:index"
+LOGOUT_REDIRECT_URL = "bboard:index"

@@ -1,0 +1,22 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+<h2>Вход</h2>
+    
+    {% if user.is_authenticated %}
+    <p>Вы уже выполнили вход!</p>
+    <p><a href="{% url "bboard:logout" %}">Выйти</a></p>
+    {% else %}
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <input type="hidden" name="next" value="{{ next }}">
+        <button class="btn btn-primary">Войти</button>
+        
+        </form>
+    {% endif %}
+    
+{% endblock %}

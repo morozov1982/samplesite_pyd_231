@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
 from .views import (  # index,
@@ -25,4 +26,7 @@ urlpatterns = [
 
     path('rubrics/', rubrics, name='rubrics'),
     path('bbs/<int:rubric_id>/', bbs, name='bbs'),
+
+    path('accounts/login/', LoginView.as_view(), name='login'),
+    path('accounts/logout/', LogoutView.as_view(), name='logout'),
 ]

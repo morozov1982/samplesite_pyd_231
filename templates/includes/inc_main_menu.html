@@ -1,6 +1,11 @@
 <nav>
     <a href="{% url 'bboard:index' %}">Главная</a>
-    <a href="{% url 'bboard:add' %}">Добавить</a>
+{#    {% if 'bboard.add_bb' in perms %}#}
+    {% if perms.bboard.add_bb %}
+        <a href="{% url 'bboard:add' %}">Добавить</a>
+    {% else %}
+        <a href="{% url 'bboard:login' %}" class="text-danger">Войти</a>
+    {% endif %}
 {#{{ rubrics.0 }}#}
     {% for rubric in rubrics %}
         {% with bb_count=rubric.cnt %}

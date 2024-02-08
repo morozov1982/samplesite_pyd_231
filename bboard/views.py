@@ -1,3 +1,6 @@
+from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import redirect_to_login
 from django.core.exceptions import NON_FIELD_ERRORS
 from django.core.paginator import Paginator
 from django.db.models import Count
@@ -36,6 +39,7 @@ def index(request):
 
 
 class BbIndexView(ListView):
+# class BbIndexView(LoginRequiredMixin, ListView):
     model = Bb
     template_name = 'index.html'
     context_object_name = 'bbs'
@@ -205,9 +209,24 @@ def rubrics(request):
     return render(request, 'bboard/rubrics.html', context)
 
 
+# @login_required
+# @user_passes_test(lambda user: user.is_staff)
+# @permission_required('bboard.view_rubric')
 def bbs(request, rubric_id):
     BbsFormSet = inlineformset_factory(Rubric, Bb, form=BbForm, extra=1)
     rubric = Rubric.objects.get(pk=rubric_id)
+
+    # if request.user.is_authenticated:
+    #     pass
+    # else:
+    #     return redirect_to_login(reverse('bboard:rubrics'))
+    # if request.user.is_anonymous:
+    # if request.user.has_perm('bboard.add_rubric'):
+    # if request.user.has_perms(('bboard.add_rubric',
+    #                            'bboard.change_rubric',
+    #                            'bboard.delete_rubric')):
+    # request.user.get_user_permissions()
+
     if request.method == 'POST':
         formset = BbsFormSet(request.POST, instance=rubric)
 
@@ -219,3 +238,6 @@ def bbs(request, rubric_id):
 
     context = {'formset': formset, 'current_rubric': rubric}
     return render(request, 'bboard/bbs.html', context)
+
+
+
