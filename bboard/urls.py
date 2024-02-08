@@ -3,7 +3,7 @@ from django.urls import path
 from .views import (  # index,
     BbIndexView, BbMonthView, BbByRubricView,
     BbCreateView, BbDetailView, BbEditView, BbDeleteView,
-    BbRedirectView, edit, add_save, rubrics)
+    BbRedirectView, edit, add_save, rubrics, bbs)
 
 
 app_name = 'bboard'
@@ -24,4 +24,5 @@ urlpatterns = [
     path('<int:year>/<int:month>/', BbMonthView.as_view(), name='month'),
 
     path('rubrics/', rubrics, name='rubrics'),
+    path('bbs/<int:rubric_id>/', bbs, name='bbs'),
 ]

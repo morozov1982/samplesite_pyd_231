@@ -104,4 +104,3 @@ class RubricBaseFormSet(forms.BaseModelFormSet):
         if ('Недвижимость' not in names) or ('Транспорт' not in names) or ('Мебель' not in names):
             raise ValidationError(
                   'Добавьте рубрики недвижимости, транспорта и мебели')
-
