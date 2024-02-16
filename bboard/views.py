@@ -16,7 +16,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .forms import BbForm, RubricBaseFormSet
+from .forms import BbForm, RubricBaseFormSet, SearchForm
 from .models import Bb, Rubric
 
 
@@ -259,4 +259,18 @@ def bbs(request, rubric_id):
     return render(request, 'bboard/bbs.html', context)
 
 
-
+def search(request):
+    if request.method == 'POST':
+        sf = SearchForm(request.POST)
+        if sf.is_valid():
+            keyword = sf.cleaned_data['keyword']
+            rubric_id = sf.cleaned_data['rubric'].pk
+            current_rubric = sf.cleaned_data['rubric']
+            # bbs = Bb.objects.filter(title__icontains=keyword, rubric=rubric_id)
+            bbs = Bb.objects.filter(title__iregex=keyword, rubric=rubric_id)
+            context = {'bbs': bbs, 'current_rubric': current_rubric, 'keyword': keyword}
+            return render(request, 'bboard/search_results.html', context)
+    else:
+        sf = SearchForm()
+    context = {'form': sf}
+    return render(request, 'bboard/search.html', context)
