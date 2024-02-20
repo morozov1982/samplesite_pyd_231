@@ -1,0 +1,1011 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2024-02-15T15:21:48.309Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "3",
+      "object_repr": "Мебель",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2024-02-15T15:23:48.091Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "Транспорт",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2024-02-15T15:24:09.837Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "Транспорт",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add Объявление",
+      "content_type": 7,
+      "codename": "add_bb"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change Объявление",
+      "content_type": 7,
+      "codename": "change_bb"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete Объявление",
+      "content_type": 7,
+      "codename": "delete_bb"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view Объявление",
+      "content_type": 7,
+      "codename": "view_bb"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add Рубрика",
+      "content_type": 8,
+      "codename": "add_rubric"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change Рубрика",
+      "content_type": 8,
+      "codename": "change_rubric"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete Рубрика",
+      "content_type": 8,
+      "codename": "delete_rubric"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view Рубрика",
+      "content_type": 8,
+      "codename": "view_rubric"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add kit",
+      "content_type": 9,
+      "codename": "add_kit"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change kit",
+      "content_type": 9,
+      "codename": "change_kit"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete kit",
+      "content_type": 9,
+      "codename": "delete_kit"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view kit",
+      "content_type": 9,
+      "codename": "view_kit"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add spare",
+      "content_type": 10,
+      "codename": "add_spare"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change spare",
+      "content_type": 10,
+      "codename": "change_spare"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete spare",
+      "content_type": 10,
+      "codename": "delete_spare"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view spare",
+      "content_type": 10,
+      "codename": "view_spare"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add machine",
+      "content_type": 11,
+      "codename": "add_machine"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change machine",
+      "content_type": 11,
+      "codename": "change_machine"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete machine",
+      "content_type": 11,
+      "codename": "delete_machine"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view machine",
+      "content_type": 11,
+      "codename": "view_machine"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add adv user",
+      "content_type": 12,
+      "codename": "add_advuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change adv user",
+      "content_type": 12,
+      "codename": "change_advuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete adv user",
+      "content_type": 12,
+      "codename": "delete_advuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view adv user",
+      "content_type": 12,
+      "codename": "view_advuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add note",
+      "content_type": 13,
+      "codename": "add_note"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change note",
+      "content_type": 13,
+      "codename": "change_note"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete note",
+      "content_type": 13,
+      "codename": "delete_note"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view note",
+      "content_type": 13,
+      "codename": "view_note"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add message",
+      "content_type": 14,
+      "codename": "add_message"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change message",
+      "content_type": 14,
+      "codename": "change_message"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete message",
+      "content_type": 14,
+      "codename": "delete_message"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view message",
+      "content_type": 14,
+      "codename": "view_message"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add private message",
+      "content_type": 15,
+      "codename": "add_privatemessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change private message",
+      "content_type": 15,
+      "codename": "change_privatemessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete private message",
+      "content_type": 15,
+      "codename": "delete_privatemessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view private message",
+      "content_type": 15,
+      "codename": "view_privatemessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add rev rubric",
+      "content_type": 16,
+      "codename": "add_revrubric"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change rev rubric",
+      "content_type": 16,
+      "codename": "change_revrubric"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete rev rubric",
+      "content_type": 16,
+      "codename": "delete_revrubric"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view rev rubric",
+      "content_type": 16,
+      "codename": "view_revrubric"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$Ig0SDcG2EMEedmisyKOfsb$wlC4GrppUPyyQeC3duriA7msx4F3mnLchNkbzzbZ3FU=",
+      "last_login": "2024-02-15T14:25:08.689Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@bboard.local",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-02-09T15:18:09.019Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "bboard",
+      "model": "bb"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "bboard",
+      "model": "rubric"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "testapp",
+      "model": "kit"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "testapp",
+      "model": "spare"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "testapp",
+      "model": "machine"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "testapp",
+      "model": "advuser"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "testapp",
+      "model": "note"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "testapp",
+      "model": "message"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "testapp",
+      "model": "privatemessage"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "bboard",
+      "model": "revrubric"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "glcmbd0eg0xxmpn0aas8bxso0hc5od0e",
+    "fields": {
+      "session_data": "e30:1razUf:l5RHJ4D08Vqrm4sW1j-EBSz3Iwfk6LXNjG49jQEYeyw",
+      "expire_date": "2024-03-01T14:47:13.079Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "u91lpl0pbtqqnv2fotb1yguzvmh6fgt5",
+    "fields": {
+      "session_data": ".eJxVjDkOwjAUBe_iGlnxj2M7lPScwfpbcAA5UpYKcXeIlALaNzPvZTJua8nbonMexZyNM6ffjZAfWncgd6y3yfJU13kkuyv2oIu9TqLPy-H-HRRcyrcG7YAH6kBFQoJeHUeOnWudpxY5DuB7BPIgDYWmYec1OfVtIuLQBzbvD-o4N_A:1racfk:Gv3iP3KHmDJ84eFg_V7FwZGrCuxZNXO3tOajYiNCWRs",
+      "expire_date": "2024-02-29T14:25:08.694Z"
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 1,
+    "fields": {
+      "name": "Недвижимость",
+      "order": 0
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 2,
+    "fields": {
+      "name": "Транспорт",
+      "order": 3
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 3,
+    "fields": {
+      "name": "Мебель",
+      "order": 3
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 1,
+    "fields": {
+      "kind": "s",
+      "rubric": 1,
+      "title": "Плотина",
+      "content": "Бобёр её строил",
+      "price": "100500.00",
+      "is_active": true,
+      "published": "2024-02-09T15:18:08.971Z",
+      "updated": "2024-02-09T15:18:08.971Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 2,
+    "fields": {
+      "kind": "s",
+      "rubric": 2,
+      "title": "1234",
+      "content": "dggdf",
+      "price": "123.00",
+      "is_active": true,
+      "published": "2024-02-09T15:18:08.979Z",
+      "updated": "2024-02-09T15:18:08.979Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 3,
+    "fields": {
+      "kind": "s",
+      "rubric": 1,
+      "title": "1234",
+      "content": "dghdeg",
+      "price": "345.00",
+      "is_active": true,
+      "published": "2024-02-09T15:18:08.985Z",
+      "updated": "2024-02-09T15:18:08.985Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 4,
+    "fields": {
+      "kind": "s",
+      "rubric": 1,
+      "title": "fg35353",
+      "content": "dfgjdfjd",
+      "price": "12.00",
+      "is_active": true,
+      "published": "2024-02-09T15:18:08.991Z",
+      "updated": "2024-02-09T15:18:08.991Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 5,
+    "fields": {
+      "kind": "s",
+      "rubric": 1,
+      "title": "Бобёр",
+      "content": "ываыва",
+      "price": "44.00",
+      "is_active": true,
+      "published": "2024-02-09T15:18:08.998Z",
+      "updated": "2024-02-09T15:18:08.998Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 6,
+    "fields": {
+      "kind": "s",
+      "rubric": 1,
+      "title": "Бобёр",
+      "content": "вап",
+      "price": "26.00",
+      "is_active": true,
+      "published": "2024-02-09T15:18:09.004Z",
+      "updated": "2024-02-09T15:18:09.004Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 7,
+    "fields": {
+      "kind": "s",
+      "rubric": 2,
+      "title": "Бобёр",
+      "content": "ыва",
+      "price": "34.00",
+      "is_active": true,
+      "published": "2024-02-09T15:18:09.012Z",
+      "updated": "2024-02-09T15:18:09.013Z"
+    }
+  },
+  {
+    "model": "testapp.spare",
+    "pk": 1,
+    "fields": {
+      "name": "Болт"
+    }
+  },
+  {
+    "model": "testapp.spare",
+    "pk": 2,
+    "fields": {
+      "name": "Гайка"
+    }
+  },
+  {
+    "model": "testapp.spare",
+    "pk": 3,
+    "fields": {
+      "name": "Шайба"
+    }
+  },
+  {
+    "model": "testapp.spare",
+    "pk": 4,
+    "fields": {
+      "name": "Шпилька"
+    }
+  },
+  {
+    "model": "testapp.machine",
+    "pk": 1,
+    "fields": {
+      "name": "Самосвал"
+    }
+  },
+  {
+    "model": "testapp.machine",
+    "pk": 2,
+    "fields": {
+      "name": "Тепловоз"
+    }
+  },
+  {
+    "model": "testapp.kit",
+    "pk": 1,
+    "fields": {
+      "machine": 1,
+      "spare": 1,
+      "count": 5
+    }
+  },
+  {
+    "model": "testapp.kit",
+    "pk": 2,
+    "fields": {
+      "machine": 1,
+      "spare": 2,
+      "count": 100
+    }
+  },
+  {
+    "model": "testapp.kit",
+    "pk": 4,
+    "fields": {
+      "machine": 2,
+      "spare": 1,
+      "count": 49
+    }
+  },
+  {
+    "model": "testapp.kit",
+    "pk": 5,
+    "fields": {
+      "machine": 2,
+      "spare": 3,
+      "count": 49
+    }
+  },
+  {
+    "model": "testapp.note",
+    "pk": 1,
+    "fields": {
+      "content": "Самая бесполезная деталь",
+      "content_type": 10,
+      "object_id": 4
+    }
+  },
+  {
+    "model": "testapp.note",
+    "pk": 2,
+    "fields": {
+      "content": "В нём не используются шпильки",
+      "content_type": 11,
+      "object_id": 2
+    }
+  },
+  {
+    "model": "testapp.message",
+    "pk": 1,
+    "fields": {
+      "content": "Привет, admin!"
+    }
+  },
+  {
+    "model": "testapp.privatemessage",
+    "pk": 1,
+    "fields": {
+      "user": 1
+    }
+  }
+]
