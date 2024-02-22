@@ -1,10 +1,25 @@
 {% extends "layout/basic.html" %}
+{% load bbcode_tags %}
 
 {% block title %}{{ bb.title }}{% endblock %}
 
 {% block content %}
     <p>Рубрика: {{ bb.rubric.name|title }}</p>
     <h2>{{ bb.title }}</h2>
+    
+    <h3>bbcode bb.content</h3>
+    {% bbcode bb.content %}
+    <br>
+    <br>
+    <h3>bb.content|bbcode|safe</h3>
+    {{ bb.content|bbcode|safe }}
+    
+{#    Если прописали в модели #}
+{#    {{ bb.content.rendered }}#}
+    
+    <br>
+    <br>
+    <h3>Обычный bb.content</h3>
     <p>{{ bb.content }} ({{ bb.content|wordcount }} слов) ({{ bb.content|length }} символов)</p>
     <p>Цена: {{ bb.price|floatformat:2|default:'У товара нет цены' }}</p>
     

@@ -1,7 +1,7 @@
 from django.core import validators
 from django.core.exceptions import ValidationError
 from django.db import models
-
+from precise_bbcode.fields import BBCodeTextField
 
 is_all_posts_passive = True
 
@@ -101,7 +101,15 @@ class Bb(models.Model):
         # validators=[validators.MinLengthValidator(4),
         #             validators.MaxLengthValidator(50)]
     )
-    content = models.TextField(null=True, blank=True, verbose_name="Описание", default="Какое-то значение:")
+    content = models.TextField(
+        null=True,
+        blank=True,
+        verbose_name="Описание",
+        default="Какое-то значение:"
+    )
+
+    # content = BBCodeTextField(null=True, blank=True, verbose_name="Описание")
+
     price = models.DecimalField(
         max_digits=8,
         decimal_places=2,

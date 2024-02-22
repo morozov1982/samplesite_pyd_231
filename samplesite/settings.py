@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
 
     'captcha',
+    'precise_bbcode',
 
     'bboard.apps.BboardConfig',  # 'bboard',
     'testapp',
@@ -172,3 +173,12 @@ CAPTCHA_TIMEOUT = 5  # МИНУТ
 
 # DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440  # 2.5 Mbytes
 # DATA_UPLOAD_MAX_NUMBER_FIELDS = 1000
+
+
+# BBCode
+BBCODE_NEWLINE = "<br>"
+# BBCODE_ESCAPE_HTML = ""
+BBCODE_DISABLE_BUILTIN_TAGS = False
+BBCODE_ALLOW_CUSTOM_TAGS = True
+BBCODE_ALLOW_SMILIES = True
+BBCODE_SMILIES_UPLOAD_TO = os.path.join('static', 'precise_bbcode', 'smilies')

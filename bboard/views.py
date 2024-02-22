@@ -15,6 +15,7 @@ from django.views.generic.dates import ArchiveIndexView, MonthArchiveView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from precise_bbcode.bbcode import get_parser
 
 from .forms import BbForm, RubricBaseFormSet, SearchForm
 from .models import Bb, Rubric
@@ -111,6 +112,13 @@ class BbDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
         return context
+
+
+def detail(request, pk):
+    parser = get_parser()
+    bb = Bb.objects.get(pk=pk)
+    parsed_content = parser.render(bb.content)
+    pass
 
 
 class BbCreateView(CreateView):
