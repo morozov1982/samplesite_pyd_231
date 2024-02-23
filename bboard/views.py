@@ -45,7 +45,7 @@ class BbIndexView(ListView):
     model = Bb
     template_name = 'index.html'
     context_object_name = 'bbs'
-    paginate_by = 2
+    paginate_by = 1
     paginate_orphans = 2
 
     def get_queryset(self):
@@ -129,6 +129,7 @@ class BbCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
+        context['messages'] = ['Ага, ты молодес!']
         return context
 
 

@@ -1,4 +1,5 @@
 {% extends "layout/basic.html" %}
+{% load bootstrap4 %}
 
 {% block title %}Изменение рубрик{% endblock %}
 
@@ -8,41 +9,8 @@
 <form method="post">
     {% csrf_token %}
     
-{#    {{ formset.as_p }}#}
-    
-    {{ formset.management_form }}
-    {% if formset.non_form_errors %}
-    <ul>
-        {% for error in formset.non_form_errors %}
-        <li><em>{{ error|escape }}</em></li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% for form in formset %}
-        {% for hidden in form.hidden_fields %}
-            {{ hidden }}
-        {% endfor %}
-        {% if form.non_field_errors %}
-        <ul>
-            {% for error in form.non_field_errors %}
-            <li><em>{{ error | escape }}</em></li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% for field in form.visible_fields %}
-            {% if field.errors %}
-            <ul>
-                {% for error in field.errors %}
-                <li><em>{{ error|escape }}</em></li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            <p>{{ field.label_tag }}<br>{{ field }}<br>
-            {{ field.help_text }}</p>
-        {% endfor %}
-    {% endfor %}
+    {% bootstrap_formset formset layout="inline" field_class="col-md-6" size="small" %}
+    {% buttons submit="Сохранить" reset="Сбросить" %}{% endbuttons %}
 
-    
-    <p><button type="submit" class="btn btn-primary">Сохранить</button></p>
 </form>
 {% endblock %}

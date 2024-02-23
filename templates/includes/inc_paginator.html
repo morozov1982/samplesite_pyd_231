@@ -1,16 +1,6 @@
-{#    <div>#}
-{#        {% if page.has_previous %}#}
-{#            <a href="?page={{ page.previous_page_number }}">&lt;</a>#}
-{#            &nbsp; &nbsp; | &nbsp; &nbsp;#}
-{#        {% endif %}#}
-{##}
-{#        Страница №{{ page.number }} из {{ page.paginator.num_pages }}#}
-{##}
-{#        {% if page.has_next %}#}
-{#            &nbsp; &nbsp; | &nbsp; &nbsp;#}
-{#            <a href="?page={{ page.next_page_number }}">&gt;</a>#}
-{#        {% endif %}#}
-{#    </div>#}
+{% load bootstrap4 %}
+
+{% bootstrap_pagination page_obj pages_to_show=3 size="small" %}
 
 {% if page_obj.has_other_pages %}
     <nav aria-label="pagination">

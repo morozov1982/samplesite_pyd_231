@@ -1,27 +1,30 @@
 {% extends "layout/basic.html" %}
+{% load bootstrap4 %}
 
 {% block title %}Добавление объявления{% endblock %}
 
 {% block content %}
+
+{#{% bootstrap_messages %}#}
+    {% bootstrap_alert content="Испавься-danger!" alert_type="danger" dismissible=False %}
+    {% bootstrap_alert content="Испавься-warning!" alert_type="warning" %}
+    
 <h2>Добавление объявления</h2>
     
-{% if form.is_multipart %}
-    <form method="post" enctype="multipart/form-data">
-{% else %}
     <form method="post">
-{% endif %}
     {% csrf_token %}
-{#    {{ form.as_p }}#}
-{#    <ul>#}
-{#            {{ form.as_ul }}#}
-{#    </ul>#}
-    <table>
-{#        {{ form.as_table }}#}
-        {{ form }}
-    </table>
-{#    <input type="submit" value="Добавить">#}
+        
+        
+{#    {% bootstrap_form form exclude='price,rubric' %}#}
+{#    {% bootstrap_form form layout="inline" field_class="col-md-6" size="small" %}#}
+    {% bootstrap_form form %}
+{#    {% bootstrap_field form.title placeholder="Пласехолдер" addon_before='Какой-то текст' addon_before_class='input-group-text' field_class='' %}#}
+{#    {% bootstrap_field form.title placeholder="Пласехолдер" addon_after='Какой-то текст' %}#}
+        
+        
+{#    {% buttons submit='Добавить' %}{% endbuttons %}#}
+    {% bootstrap_button content='Добавить' button_type="submit" button_class="btn-primary" %}
+    
+    </form>
 
-    <button type="submit" class="btn btn-primary">Добавить</button>
-
-</form>
 {% endblock %}
