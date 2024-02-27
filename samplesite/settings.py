@@ -78,6 +78,12 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 # 'django.template.context_processors.media',
             ],
+            # 'libraries': {
+            #     'filtertags': 'bboard.filtertags',
+            # },
+            # 'builtins': [
+            #     'bboard.templatetags.filtertags',
+            # ],
         },
     },
 ]

@@ -1,7 +1,12 @@
 {% extends "layout/basic.html" %}
 {% load bbcode_tags %}
+{% load filtertags %}
 
 {% block content %}
+    
+{#    {% lst ', ' '1' '2' '3' '4' '5' %}#}
+    
+    {% ulist '1' '2' '3' '4' '5' %}
     
 {% for bb in bbs %}
 <div>
@@ -11,6 +16,12 @@
             {{ forloop.counter0|add:page_obj.start_index }} - {{ bb.title_and_price }}</a>
     </h2>
     <p>{{ bb.content|bbcode|safe }}</p>
+    
+    {% autoescape on %}
+        <p>Цена: {{ bb.price|cur }}</p>
+        <p>Цена: {{ bb.price|cur:'руб.' }}</p>
+    {% endautoescape %}
+    
     <p>
         <a href="{% url 'bboard:by_rubric' bb.rubric.pk %}">
             {{ bb.rubric.name }}</a>
