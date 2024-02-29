@@ -8,6 +8,8 @@ from django.views.decorators.gzip import gzip_page
 from django.views.decorators.http import require_http_methods, require_GET, require_POST, require_safe
 
 from bboard.models import Rubric, Bb
+from testapp.forms import ImgForm
+from testapp.models import Img
 
 
 # def index(request):
@@ -48,3 +50,22 @@ def index(request):
     context = {'title': 'Тестовая страница', 'bbs': bbs, 'res': res}
 
     return render(request, 'test.html', context)
+
+
+def add(request):
+    if request.method == 'POST':
+        form = ImgForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('test:add')
+    else:
+        form = ImgForm()
+    context = {'form': form}
+    return render(request, 'testapp/add.html', context)
+
+
+def delete(request, pk):
+    img = Img.objects.get(pk=pk)
+    img.img.delete()
+    img.delete()
+    return redirect('test:add')

@@ -151,11 +151,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-# STATICFILES_DIRS = [
-#     ('main', BASE_DIR / 'static'),
-# ]
-
 # STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
+# FILE_UPLOAD_TEMP_DIR = None
+# FILE_UPLOAD_PERMISSIONS = 0o644
+# FILE_UPLOAD_DIRECTORY_PERMISSIONS = None
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -188,7 +192,7 @@ BBCODE_NEWLINE = "<br>"
 BBCODE_DISABLE_BUILTIN_TAGS = False
 BBCODE_ALLOW_CUSTOM_TAGS = True
 BBCODE_ALLOW_SMILIES = True
-BBCODE_SMILIES_UPLOAD_TO = os.path.join('static', 'precise_bbcode', 'smilies')
+BBCODE_SMILIES_UPLOAD_TO = os.path.join('precise_bbcode', 'smilies')
 
 
 # BOOTSTRAP4 = {
