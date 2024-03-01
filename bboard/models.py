@@ -125,6 +125,11 @@ class Bb(models.Model):
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name="Опубликовано")
     updated = models.DateTimeField(auto_now=True, db_index=True, verbose_name="Изменено")
 
+    picture = models.ImageField(verbose_name='Изображение',
+                                upload_to='bb/%Y/%m/%d/',
+                                blank=True,
+                                null=True,)
+
     objects = models.Manager()
     by_price = BbManager()
 

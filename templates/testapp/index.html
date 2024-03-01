@@ -1,0 +1,15 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    
+    {% for img in imgs %}
+        <div class="image">
+        <p>
+            <img src="{% url 'test:get' filename=img %}" alt="">
+        </p>
+        </div>
+    {% endfor %}
+    
+{% endblock content %}

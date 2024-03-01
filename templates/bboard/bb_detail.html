@@ -1,11 +1,16 @@
 {% extends "layout/basic.html" %}
 {% load bbcode_tags %}
+{% load thumbnail %}
 
 {% block title %}{{ bb.title }}{% endblock %}
 
 {% block content %}
     <p>Рубрика: {{ bb.rubric.name|title }}</p>
     <h2>{{ bb.title }}</h2>
+    
+    <img src="{% thumbnail bb.picture 'default' %}" alt="">
+    <img src="{% thumbnail bb.picture 'default' bw=True %}" alt="">
+    <img src="{% thumbnail bb.picture '300x200' crop='smart' %}" alt="">
     
     <h3>bbcode bb.content</h3>
     {% bbcode bb.content %}

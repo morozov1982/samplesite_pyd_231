@@ -59,10 +59,10 @@ class BbForm(forms.ModelForm):
                                     label='Рубрика', help_text='Не забудь выбрать рубрику!',
                                     widget=forms.widgets.Select(attrs={'size': 8}))
 
-    captcha = CaptchaField(
-        label='Введите текст с картинки',
-        error_messages={'invalid': 'Неправильный текст'},
-    )
+    # captcha = CaptchaField(
+    #     label='Введите текст с картинки',
+    #     error_messages={'invalid': 'Неправильный текст'},
+    # )
 
     def clean_title(self):
         # val = self.cleaned_data['title']
@@ -86,7 +86,7 @@ class BbForm(forms.ModelForm):
 
     class Meta:
         model = Bb
-        fields = ('title', 'content', 'price', 'rubric')
+        fields = ('title', 'picture', 'content', 'price', 'rubric')
         labels = {'title': 'Название товара'}
 
 

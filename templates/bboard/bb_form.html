@@ -1,12 +1,15 @@
 {% extends "layout/basic.html" %}
+{% load thumbnail %}
 
 {% block title %}Изменение объявления{% endblock %}
 
 {% block content %}
 <h2>Изменение объявления</h2>
     
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
+
+    <img src="{% thumbnail bb.picture '200x0' %}" alt="">
     
     {% for hidden in form.hidden_fields %}
         {{ hidden }}
