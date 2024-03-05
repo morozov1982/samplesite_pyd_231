@@ -1,5 +1,7 @@
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.contrib.auth.views import redirect_to_login
 from django.core.exceptions import NON_FIELD_ERRORS
 from django.core.paginator import Paginator
@@ -283,3 +285,35 @@ def search(request):
         sf = SearchForm()
     context = {'form': sf}
     return render(request, 'bboard/search.html', context)
+
+
+def my_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+
+    user = authenticate(request, username=username, password=password)
+
+    if user is not None:
+        login(request, user)
+        # Вход выполнен
+    else:
+        # Вход не выполнен
+        pass
+
+
+def my_logout(request):
+    logout(request)
+    # Неплохо бы перенаправить
+
+
+if __name__ == '__main__':
+    admin = User.objects.get(name='admin')
+    if admin.check_password('password'):
+        # Пароли совпадают
+        pass
+    else:
+        # Пароли не совпадают
+        pass
+
+    # admin.set_password('newpassword')
+    # admin.save()

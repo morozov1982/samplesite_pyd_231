@@ -37,4 +37,9 @@ class Command(BaseCommand):
             new_bb = Bb(**_bb)
             new_bb.save()
 
-        User.objects.create_superuser('admin', 'admin@bboard.local', '123')
+        user1 = User.objects.create_user('user1', 'user1@gmail.ru', '123')
+        user2 = User.objects.create_user('user2',
+                                         email='user2@gmail.ru',
+                                         password='123',
+                                         is_staff=True)
+        user3 = User.objects.create_superuser('admin', 'admin@bboard.local', '123')

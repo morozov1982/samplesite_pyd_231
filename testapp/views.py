@@ -101,3 +101,8 @@ def delete(request, pk):
     img.img.delete()
     img.delete()
     return redirect('test:add')
+
+
+# def hide_comment(request):
+#     if request.user.has_perm('testapp.hide_comments'):
+#         pass
