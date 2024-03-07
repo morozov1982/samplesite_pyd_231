@@ -53,10 +53,10 @@ class BbIndexView(ListView):
     def get_queryset(self):
         return Bb.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['rubrics'] = Rubric.objects.annotate(cnt=Count('bb')).filter(cnt__gt=0)
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['rubrics'] = Rubric.objects.annotate(cnt=Count('bb')).filter(cnt__gt=0)
+    #     return context
 
 
 # class BbIndexView(ArchiveIndexView):
@@ -82,10 +82,10 @@ class BbMonthView(MonthArchiveView):
     context_object_name = 'bbs'
     allow_empty = True
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['rubrics'] = Rubric.objects.all()
-        return context
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['rubrics'] = Rubric.objects.all()
+    #     return context
 
 
 class BbRedirectView(RedirectView):
@@ -101,7 +101,7 @@ class BbByRubricView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['rubrics'] = Rubric.objects.all()
+        # context['rubrics'] = Rubric.objects.all()
         context['current_rubric'] = Rubric.objects.get(
             pk=self.kwargs['rubric_id'])
         return context
@@ -110,10 +110,10 @@ class BbByRubricView(ListView):
 class BbDetailView(DetailView):
     model = Bb
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['rubrics'] = Rubric.objects.all()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['rubrics'] = Rubric.objects.all()
+    #     return context
 
 
 def detail(request, pk):
@@ -130,7 +130,7 @@ class BbCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['rubrics'] = Rubric.objects.all()
+        # context['rubrics'] = Rubric.objects.all()
         context['messages'] = ['Ага, ты молодес!']
         return context
 
@@ -140,20 +140,20 @@ class BbEditView(UpdateView):
     form_class = BbForm
     success_url = '/'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['rubric'] = Rubric.objects.all()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['rubric'] = Rubric.objects.all()
+    #     return context
 
 
 class BbDeleteView(DeleteView):
     model = Bb
     success_url = '/'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['rubric'] = Rubric.objects.all()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['rubric'] = Rubric.objects.all()
+    #     return context
 
 
 def edit(request, pk):
