@@ -251,3 +251,15 @@ THUMBNAIL_DEFAULT_OPTIONS = {
 }
 
 THUMBNAIL_PRESERVE_EXTENSION = True  # ('png',)
+
+
+# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
+# MESSAGE_LEVEL = 20
+
+# from django.contrib import messages
+# MESSAGE_LEVEL = messages.DEBUG

@@ -1,10 +1,21 @@
 {% extends "layout/basic.html" %}
 {% load thumbnail %}
+{% load bootstrap4 %}
 
 {% block title %}Изменение объявления{% endblock %}
 
 {% block content %}
-<h2>Изменение объявления</h2>
+    
+    <ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {{ message }}
+        </li>
+    {%  endfor %}
+    </ul>
+
+    
+    <h2>Изменение объявления</h2>
     
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}

@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,7 +10,7 @@ from django.db import transaction
 from django.db.models import Count
 from django.forms import modelformset_factory, inlineformset_factory
 from django.forms.formsets import ORDERING_FIELD_NAME
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import RedirectView
@@ -25,7 +26,6 @@ from .models import Bb, Rubric
 
 def index(request):
     bbs = Bb.objects.all()
-    rubrics = Rubric.objects.annotate(cnt=Count('bb')).filter(cnt__gt=0)
 
     paginator = Paginator(bbs, 2, orphans=2)
     # paginator = Paginator(bbs, 1, orphans=0)
@@ -35,11 +35,30 @@ def index(request):
     else:
         page_num = 1
 
+    # if 'counter' in request.COOKIES:
+    #     cnt = int(request.COOKIES['counter']) + 1
+    # else:
+    #     cnt = 1
+
+    if 'counter' in request.session:
+        cnt = int(request.session['counter']) + 1
+    else:
+        cnt = 1
+
+    request.session['counter'] = cnt
+
+    print('cnt =', cnt)
+
     page = paginator.get_page(page_num)
 
     context = {'rubrics': rubrics, 'page_obj': page, 'bbs': page.object_list}
 
-    return render(request, 'index.html', context)
+    response = render(request, 'index.html', context)
+    response.set_cookie('counter', cnt)
+    # response.set_signed_cookie('counter', cnt, salt=settings.SECRET_KEY)
+    # response.get_signed_cookie('counter', salt=settings.SECRET_KEY)
+
+    return response
 
 
 class BbIndexView(ListView):
@@ -53,10 +72,13 @@ class BbIndexView(ListView):
     def get_queryset(self):
         return Bb.objects.all()
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['rubrics'] = Rubric.objects.annotate(cnt=Count('bb')).filter(cnt__gt=0)
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'counter' in self.request.COOKIES:
+            cnt = int(self.request.COOKIES['counter']) + 1
+        else:
+            cnt = 1
+        return context
 
 
 # class BbIndexView(ArchiveIndexView):
@@ -138,12 +160,20 @@ class BbCreateView(CreateView):
 class BbEditView(UpdateView):
     model = Bb
     form_class = BbForm
-    success_url = '/'
+    # success_url = '/'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['rubric'] = Rubric.objects.all()
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        CRITICAL = 50
+
+        messages.add_message(self.request, messages.SUCCESS,
+                             'Объявление исправлено!', extra_tags='first second')
+        messages.add_message(self.request, CRITICAL, 'Случилось непоправимое!')
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy('bboard:update', kwargs={'pk': self.kwargs['pk']})
 
 
 class BbDeleteView(DeleteView):

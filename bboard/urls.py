@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
-from .views import (  # index,
+from .views import (index,
     BbIndexView, BbMonthView, BbByRubricView,
     BbCreateView, BbDetailView, BbEditView, BbDeleteView,
     BbRedirectView, edit, add_save, rubrics, bbs, search)
@@ -19,8 +19,8 @@ urlpatterns = [
 
     path('<int:rubric_id>/', BbByRubricView.as_view(), name='by_rubric'),
 
-    # path('', index, name='index'),
-    path('', BbIndexView.as_view(), name='index'),
+    path('', index, name='index'),
+    # path('', BbIndexView.as_view(), name='index'),
     path('year/<int:year>/', BbRedirectView.as_view(), name='redirect'),
     path('<int:year>/<int:month>/', BbMonthView.as_view(), name='month'),
 
