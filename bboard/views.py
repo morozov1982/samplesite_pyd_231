@@ -51,7 +51,7 @@ def index(request):
 
     page = paginator.get_page(page_num)
 
-    context = {'rubrics': rubrics, 'page_obj': page, 'bbs': page.object_list}
+    context = {'page_obj': page, 'bbs': page.object_list}
 
     response = render(request, 'index.html', context)
     response.set_cookie('counter', cnt)
@@ -154,6 +154,7 @@ class BbCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         # context['rubrics'] = Rubric.objects.all()
         context['messages'] = ['Ага, ты молодес!']
+
         return context
 
 
