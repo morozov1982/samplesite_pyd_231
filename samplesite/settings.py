@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os.path
 from pathlib import Path
 
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3xf9r318pm=l)tzm(mo^df+x5!p@g2j#lf*ag6n7a!r((lw7+z'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -263,3 +268,28 @@ THUMBNAIL_PRESERVE_EXTENSION = True  # ('png',)
 
 # from django.contrib import messages
 # MESSAGE_LEVEL = messages.DEBUG
+
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+
+DEFAULT_FROM_EMAIL = "webmaster@localhost"
+
+# только для SMTP
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 25
+# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+# EMAIL_TIMEOUT = 5  # сек.
+
+EMAIL_FILE_PATH = 'tmp/messages/'
+
+ADMINS = [
+    ('admin', 'admin@supersite.kz'),
+]
+
+# MANGERS = [
+#     ('manager', 'manager@supersite.kz'),
+# ]
