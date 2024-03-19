@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test, per
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import redirect_to_login
+from django.core.cache import caches, cache
 from django.core.exceptions import NON_FIELD_ERRORS
 from django.core.paginator import Paginator
 from django.db import transaction
@@ -13,6 +14,7 @@ from django.forms.formsets import ORDERING_FIELD_NAME
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
+from django.views.decorators.cache import cache_page
 from django.views.generic import RedirectView
 from django.views.generic.dates import ArchiveIndexView, MonthArchiveView
 from django.views.generic.list import ListView
@@ -24,6 +26,7 @@ from .forms import BbForm, RubricBaseFormSet, SearchForm
 from .models import Bb, Rubric
 
 
+# @cache_page(60 * 5)
 def index(request):
     bbs = Bb.objects.all()
 
@@ -124,6 +127,15 @@ class BbByRubricView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # context['rubrics'] = Rubric.objects.all()
+
+        # cache.set('current_rubric', Rubric.objects.get(
+        #     pk=self.kwargs['rubric_id']))
+        # print(cache.get('current_rubric'))
+        # cache.delete('current_rubric')
+        # print(cache.get('current_rubric'))
+        #
+        # cache.clear()
+
         context['current_rubric'] = Rubric.objects.get(
             pk=self.kwargs['rubric_id'])
         return context

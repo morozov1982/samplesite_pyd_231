@@ -56,8 +56,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    # 'django.middleware.cache.UpdateCacheMiddleware',  # для кэша
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+
+    # 'django.middleware.cache.FetchFromCacheMiddleware',  # для кэша
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -293,3 +299,31 @@ ADMINS = [
 # MANGERS = [
 #     ('manager', 'manager@supersite.kz'),
 # ]
+
+CACHES = {
+    # 'default': {
+    #     'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    #     'LOCATION': 'cache1',
+    #     # 'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+    #     # 'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+    #     # 'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    #     # 'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
+    #     'TIMEOUT': 300,  # сек
+    #     'OPTIONS': {
+    #         'MAX_ENTRIES': 300,
+    #         'CULL_FREQUENCY': 3,
+    #     }
+    # },
+    #
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache_table',
+        'TIMEOUT': 120,
+        'OPTIONS': {
+            'MAX_ENTRIES': 200,
+        }
+    },
+}
+
+# CACHE_MIDDLEWARE_ALIAS = 'default'
+# CACHE_MIDDLEWARE_SECONDS = 600  # сек

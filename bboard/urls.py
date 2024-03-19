@@ -1,5 +1,6 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
+from django.views.decorators.cache import cache_page
 
 from .views import (index,
     BbIndexView, BbMonthView, BbByRubricView,
@@ -18,6 +19,7 @@ urlpatterns = [
     path('delete/<int:pk>/', BbDeleteView.as_view(), name='delete'),
 
     path('<int:rubric_id>/', BbByRubricView.as_view(), name='by_rubric'),
+    # path('<int:rubric_id>/', cache_page(10)(BbByRubricView.as_view()), name='by_rubric'),
 
     path('', index, name='index'),
     # path('', BbIndexView.as_view(), name='index'),
